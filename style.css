@@ -44,6 +44,7 @@ body {
     z-index: 1000;
     transition: background 0.3s;
     backdrop-filter: blur(10px);
+    height: 70px;
 }
 
 .prime-nav.scrolled {
@@ -155,10 +156,11 @@ body {
 }
 
 .user-profile img {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
     border-radius: 4px;
     object-fit: cover;
+    border: 2px solid var(--prime-blue);
 }
 
 .user-profile span {
@@ -429,7 +431,7 @@ body {
 
 .profile-image {
     position: relative;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
 }
 
@@ -437,6 +439,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.profile-image:hover img {
+    transform: scale(1.05);
 }
 
 .profile-badge {
@@ -1261,7 +1268,7 @@ body {
     line-height: 1.5;
 }
 
-/* Responsive Design - FIXED */
+/* Responsive Design */
 @media (max-width: 1200px) {
     .prime-hero {
         padding: 120px 1.5rem 1.5rem;
@@ -1329,6 +1336,7 @@ body {
     }
 }
 
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
     .prime-nav {
         padding: 1rem;
@@ -1507,6 +1515,36 @@ body {
     }
 }
 
+/* Profile Picture Specific Styling */
+#profile-img, .profile-image img {
+    border: 2px solid var(--prime-blue);
+    box-shadow: 0 4px 12px rgba(0, 168, 225, 0.25);
+    transition: all 0.3s ease;
+}
+
+#profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 168, 225, 0.4);
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+}
+
+/* Loading fallback for profile picture */
+.profile-image {
+    background: linear-gradient(45deg, var(--prime-gray), var(--prime-light-gray));
+}
+
+.profile-image img {
+    background: var(--prime-dark-blue);
+}
+
+/* Ensure PNG transparency is handled */
+#profile-img, .profile-image img {
+    background-color: var(--prime-dark-blue);
+}
+
 /* Animation Classes */
 .fade-in {
     animation: fadeIn 1s ease-in;
@@ -1563,4 +1601,21 @@ body {
     background: #0098cc;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 168, 225, 0.4);
+}
+
+/* Fix for profilepic.png loading */
+img[src="profilepic.png"], 
+img[src*="profilepic"] {
+    animation: fadeInImage 0.8s ease-in;
+}
+
+@keyframes fadeInImage {
+    from { 
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
 }
