@@ -9,7 +9,7 @@ backToTopBtn.innerHTML = '<i class="fas fa-chevron-up"></i>';
 // Add back to top button to page
 document.body.appendChild(backToTopBtn);
 
-// Mobile Menu Toggle - FIXED
+// Mobile Menu Toggle
 mobileMenuBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     mobileMenu.classList.toggle('active');
@@ -123,9 +123,7 @@ if (contactForm) {
         // Simulate form submission
         const submitBtn = this.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
-        const originalWidth = submitBtn.offsetWidth;
         
-        submitBtn.style.width = originalWidth + 'px';
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
         submitBtn.disabled = true;
         
@@ -136,7 +134,6 @@ if (contactForm) {
             // Reset form
             this.reset();
             submitBtn.innerHTML = originalText;
-            submitBtn.style.width = '';
             submitBtn.disabled = false;
         }, 1500);
     });
@@ -159,7 +156,6 @@ if (playBtn) {
                         <i class="fas fa-play-circle"></i>
                         <h3>Database Architecture Overview</h3>
                         <p>A preview of my database architecture expertise</p>
-                        <p style="margin-top: 20px; color: #ccc; font-size: 0.9rem;">This would be a video presentation in a real implementation</p>
                     </div>
                 </div>
             </div>
@@ -279,10 +275,6 @@ if (addBtn) {
     addBtn.addEventListener('click', (e) => {
         e.preventDefault();
         const originalText = addBtn.innerHTML;
-        const originalBg = addBtn.style.background;
-        const originalColor = addBtn.style.color;
-        const originalBorder = addBtn.style.borderColor;
-        
         addBtn.innerHTML = '<i class="fas fa-check"></i> Added to Watchlist';
         addBtn.style.background = 'var(--prime-green)';
         addBtn.style.color = 'white';
@@ -290,9 +282,9 @@ if (addBtn) {
         
         setTimeout(() => {
             addBtn.innerHTML = originalText;
-            addBtn.style.background = originalBg;
-            addBtn.style.color = originalColor;
-            addBtn.style.borderColor = originalBorder;
+            addBtn.style.background = '';
+            addBtn.style.color = '';
+            addBtn.style.borderColor = '';
         }, 2000);
     });
 }
@@ -302,7 +294,7 @@ const moreBtn = document.querySelector('.more-btn');
 if (moreBtn) {
     moreBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        // Scroll to about section or show more info
+        // Scroll to skills section
         document.querySelector('#skills').scrollIntoView({ 
             behavior: 'smooth',
             block: 'start'
@@ -316,78 +308,31 @@ if (searchInput) {
     searchInput.addEventListener('input', (e) => {
         const searchTerm = e.target.value.toLowerCase().trim();
         if (searchTerm.length > 2) {
-            // Search through content
-            const searchableElements = document.querySelectorAll('h1, h2, h3, h4, p, .skill-card h3, .exp-content h3, .cert-card h3');
-            let found = false;
-            
-            searchableElements.forEach(el => {
-                const text = el.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    el.style.backgroundColor = 'rgba(0, 168, 225, 0.2)';
-                    el.style.padding = '5px';
-                    el.style.borderRadius = '3px';
-                    setTimeout(() => {
-                        el.style.backgroundColor = '';
-                        el.style.padding = '';
-                    }, 2000);
-                    found = true;
-                }
-            });
-            
-            if (!found) {
-                console.log('No results found for:', searchTerm);
-            }
+            console.log(`Searching for: ${searchTerm}`);
         }
     });
 }
 
-// Initialize animations on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            
-            if (entry.target.classList.contains('skill-card') || 
-                entry.target.classList.contains('experience-card') || 
-                entry.target.classList.contains('cert-card') || 
-                entry.target.classList.contains('project-card')) {
-                entry.target.classList.add('slide-up');
-            }
-            
-            // Animate skill progress bars
-            if (entry.target.classList.contains('skill-card')) {
-                const progress = entry.target.querySelector('.progress');
-                if (progress) {
-                    const width = progress.style.width;
-                    progress.style.width = '0';
-                    setTimeout(() => {
-                        progress.style.width = width;
-                        progress.style.transition = 'width 1.5s ease-in-out';
-                    }, 300);
-                }
-            }
-        }
-    });
-}, observerOptions);
-
-// Observe elements on page load
+// FIXED: Initialize animations - REMOVED problematic observer
 document.addEventListener('DOMContentLoaded', () => {
-    // Observe animated elements
+    // Set all content to visible immediately
     document.querySelectorAll('.skill-card, .experience-card, .cert-card, .project-card, .pub-content, .contact-info').forEach(el => {
-        observer.observe(el);
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
+        el.style.transition = 'none'; // Remove transition initially
     });
     
-    // Set initial styles for animation
-    document.querySelectorAll('.skill-card, .experience-card, .cert-card, .project-card').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-    });
+    // Animate skill progress bars on page load
+    setTimeout(() => {
+        document.querySelectorAll('.skill-progress .progress').forEach(progress => {
+            const width = progress.style.width;
+            progress.style.width = '0';
+            setTimeout(() => {
+                progress.style.width = width;
+                progress.style.transition = 'width 1.5s ease-in-out';
+            }, 100);
+        });
+    }, 500);
     
     // Update copyright year
     const yearElements = document.querySelectorAll('.copyright p, .footer-bottom p');
@@ -420,45 +365,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // Initialize carousel buttons visibility
-    updateCarouselButtons();
+    // Initialize carousel buttons
+    setTimeout(() => {
+        carousels.forEach((carousel, index) => {
+            if (prevBtns[index] && nextBtns[index]) {
+                prevBtns[index].style.opacity = '0.8';
+                nextBtns[index].style.opacity = '0.8';
+            }
+        });
+    }, 1000);
 });
 
-// Update carousel button visibility based on scroll
-function updateCarouselButtons() {
-    carousels.forEach((carousel, index) => {
-        const prevBtn = prevBtns[index];
-        const nextBtn = nextBtns[index];
-        
-        carousel.addEventListener('scroll', () => {
-            const isAtStart = carousel.scrollLeft === 0;
-            const isAtEnd = carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1;
-            
-            prevBtn.style.opacity = isAtStart ? '0.3' : '0.8';
-            prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
-            
-            nextBtn.style.opacity = isAtEnd ? '0.3' : '0.8';
-            nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
-        });
-    });
-}
-
 // Handle window resize
-let resizeTimeout;
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        // Close mobile menu on large screens
-        if (window.innerWidth > 768) {
-            mobileMenu.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.className = 'fas fa-bars';
-            document.body.style.overflow = '';
-        }
-        
-        // Update carousel button positions
-        updateCarouselButtons();
-    }, 250);
+    // Close mobile menu on large screens
+    if (window.innerWidth > 768) {
+        mobileMenu.classList.remove('active');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.className = 'fas fa-bars';
+        document.body.style.overflow = '';
+    }
 });
 
 // Add keyboard navigation
@@ -514,8 +440,22 @@ carousels.forEach(carousel => {
     });
 });
 
-// Initialize with animations
+// Simple scroll animation - only for hero elements
+window.addEventListener('scroll', () => {
+    const heroContent = document.querySelector('.hero-content');
+    const heroSidebar = document.querySelector('.hero-sidebar');
+    
+    if (window.scrollY > 100) {
+        if (heroContent) heroContent.classList.add('fade-in');
+        if (heroSidebar) heroSidebar.classList.add('fade-in');
+    }
+});
+
+// Initialize with hero animations
 setTimeout(() => {
-    document.querySelector('.hero-content').classList.add('fade-in');
-    document.querySelector('.hero-sidebar').classList.add('fade-in');
+    const heroContent = document.querySelector('.hero-content');
+    const heroSidebar = document.querySelector('.hero-sidebar');
+    
+    if (heroContent) heroContent.classList.add('fade-in');
+    if (heroSidebar) heroSidebar.classList.add('fade-in');
 }, 300);
