@@ -1619,3 +1619,27 @@ img[src*="profilepic"] {
         transform: scale(1);
     }
 }
+/* Troubleshooting - Force image display */
+.profile-image img[src="profilepic.png"],
+.profile-image img[src*="profilepic"],
+#profile-img[src="profilepic.png"],
+#profile-img[src*="profilepic"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Fallback background if image fails to load */
+.profile-image:has(img[src=""])::after,
+.profile-image:has(img:not([src]))::after,
+#profile-img[src=""]::after,
+#profile-img:not([src])::after {
+    content: 'Profile Picture';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--prime-blue);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
