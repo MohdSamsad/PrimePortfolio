@@ -67,6 +67,19 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
 }
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 10% 20%, rgba(77, 138, 240, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 90% 80%, rgba(0, 201, 200, 0.02) 0%, transparent 25%),
+        linear-gradient(135deg, var(--wix-bg-secondary) 0%, var(--wix-bg-primary) 100%);
+    z-index: -1;
+}
 /* Amazon Prime Navigation */
 .prime-nav {
     display: flex;
