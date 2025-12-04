@@ -85,18 +85,17 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem; /* Changed from 1rem 2rem */
-    background: rgba(255, 255, 255, 0.98);
+    padding: 0 40px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: all 0.3s;
-    backdrop-filter: blur(10px);
-    height: 70px;
-    border-bottom: 1px solid #e6e6e6;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    height: 80px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--wix-shadow-sm);
 }
 
 .prime-nav.scrolled {
@@ -107,61 +106,54 @@ body::before {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 3rem; /* Increased gap */
-    flex: 1;
+    gap: 40px;
 }
 
 .prime-logo {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #1428a0; /* Samsung blue */
+    gap: 12px;
     text-decoration: none;
-    min-width: 200px; /* Ensure consistent width */
 }
 
 .prime-logo i {
-    color: #1428a0;
-    font-size: 1.5rem;
+    color: var(--wix-accent-primary);
+    font-size: 28px;
 }
 
 .prime-logo span {
-    font-size: 1.6rem;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 1px;
-}.nav-links {
+    background: var(--wix-gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-links {
     display: flex;
     list-style: none;
-    gap: 2.5rem; /* Increased gap */
-    margin: 0;
-    padding: 0;
+    gap: 32px;
     align-items: center;
-    height: 100%;
 }
 
 .nav-links a {
-    color: #333;
+    color: var(--wix-text-secondary);
     text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 0.5rem 0;
+    font-size: 16px;
+    font-weight: 500;
+    transition: var(--wix-transition);
+    padding: 8px 0;
     position: relative;
-    height: 100%;
 }
 
 .nav-links a:hover {
-    color: #1428a0;
+    color: var(--wix-accent-primary);
 }
 
 .nav-links .active a {
-    color: #1428a0;
-    font-weight: 700;
+    color: var(--wix-accent-primary);
+    font-weight: 600;
 }
 
 .nav-links .active a::after {
@@ -171,84 +163,77 @@ body::before {
     left: 0;
     width: 100%;
     height: 3px;
-    background: #1428a0;
-    border-radius: 2px 2px 0 0;
+    background: var(--wix-gradient-blue);
+    border-radius: 2px;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 2rem; /* Increased gap */
-    justify-content: flex-end;
-    flex: 1;
-    min-width: 300px; /* Ensure enough space */
+    gap: 20px;
 }
 
 .search-box {
     position: relative;
-    display: flex;
-    align-items: center;
-    min-width: 250px;
 }
 
 .search-box i {
     position: absolute;
-    left: 12px;
-    color: #666;
-    z-index: 1;
-    font-size: 1rem;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--wix-text-light);
 }
 
 .search-box input {
-    background: #f5f5f7;
-    border: 1px solid #ddd;
-    border-radius: 20px; /* Rounded edges */
-    padding: 10px 20px 10px 40px;
-    color: #333;
-    width: 100%;
-    font-size: 0.95rem;
-    transition: all 0.3s;
-    height: 40px;
+    background: var(--wix-bg-tertiary);
+    border: 1px solid transparent;
+    border-radius: 50px;
+    padding: 10px 20px 10px 45px;
+    width: 280px;
+    font-size: 14px;
+    transition: var(--wix-transition);
+    color: var(--wix-text-primary);
 }
 
 .search-box input:focus {
     outline: none;
-    border-color: #1428a0;
+    border-color: var(--wix-accent-primary);
     background: white;
-    box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.1);
-    width: 300px; /* Expand on focus */
+    box-shadow: 0 0 0 3px rgba(77, 138, 240, 0.1);
+    width: 320px;
 }
 
 .user-profile {
     display: flex;
     align-items: center;
     gap: 12px;
-    cursor: pointer;
     padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 0.3s;
-    background: #f5f5f7;
-    border: 1px solid transparent;
+    background: white;
+    border-radius: var(--wix-radius-md);
+    text-decoration: none;
+    transition: var(--wix-transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: var(--wix-shadow-sm);
 }
 
 .user-profile:hover {
-    background: white;
-    border-color: #ddd;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+    box-shadow: var(--wix-shadow-md);
 }
 
 .user-profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--wix-radius-sm);
     object-fit: cover;
-    border: 2px solid #1428a0;
+    border: 2px solid var(--wix-accent-primary);
 }
 
 .user-profile span {
-    font-size: 1rem;
+    color: var(--wix-text-primary);
     font-weight: 600;
-    color: #333;
+    font-size: 15px;
 }
 
 .mobile-menu-btn {
