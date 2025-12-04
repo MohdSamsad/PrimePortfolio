@@ -1,14 +1,47 @@
 /* Amazon Prime Theme - Exact Replica */
 :root {
-    --prime-blue: #00a8e1;
-    --prime-dark-blue: #0f171e;
+    --prime-blue: #1428a0;
+    --prime-dark-blue: #f8f8f8;
     --prime-black: #000000;
     --prime-white: #ffffff;
-    --prime-gray: #1a2530;
-    --prime-light-gray: #2d3e50;
+    --prime-gray: #ffffff;
+    --prime-light-gray: #ffffff;
     --prime-red: #e50914;
     --prime-yellow: #ffd700;
     --prime-green: #46d369;
+    /* Samsung Theme Additions */
+    /* Keep existing variables above, add these: */
+    --samsung-blue: #1428a0;
+    --samsung-light-blue: #3b5bff;
+    --samsung-gradient: linear-gradient(90deg, var(--samsung-blue), var(--samsung-light-blue));
+    --samsung-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    --samsung-border: #e6e6e6;
+    --samsung-background-light: #f8f8f8;
+    --samsung-background-white: #ffffff;
+}
+
+.section-card {
+    background: var(--samsung-background-white);
+    border-radius: 12px;
+    box-shadow: var(--samsung-card-shadow);
+    border: 1px solid var(--samsung-border);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    transition: box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient Text for Headings */
+.gradient-heading {
+    background: var(--samsung-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
 }
 
 /* Reset and Base Styles */
@@ -25,7 +58,7 @@ html {
 body {
     font-family: 'Amazon Ember', 'Segoe UI', Arial, sans-serif;
     background-color: var(--prime-dark-blue);
-    color: var(--prime-white);
+    color: #1a1a1a;
     line-height: 1.6;
     overflow-x: hidden;
 }
@@ -36,7 +69,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    background: rgba(15, 23, 30, 0.95);
+    background: rgba(255, 255, 255, 0.95); /* CHANGED to white */
     position: fixed;
     top: 0;
     left: 0;
@@ -45,11 +78,13 @@ body {
     transition: background 0.3s;
     backdrop-filter: blur(10px);
     height: 70px;
+    color: #1a1a1a; /* ADD THIS for text color */
+    border-bottom: 1px solid var(--samsung-border); /* ADD THIS */
 }
 
 .prime-nav.scrolled {
-    background: var(--prime-dark-blue);
-    border-bottom: 1px solid var(--prime-light-gray);
+    background: var(--samsung-background-white); /* CHANGED */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* ADD subtle shadow */
 }
 
 .nav-left {
@@ -79,14 +114,8 @@ body {
     letter-spacing: 1px;
 }
 
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
 .nav-links a {
-    color: #ccc;
+    color: #333; /* CHANGED from #ccc to #333 */
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 500;
@@ -97,7 +126,7 @@ body {
 }
 
 .nav-links a:hover {
-    color: var(--prime-white);
+    color: var(--prime-blue); /* Keep blue on hover */
 }
 
 .nav-links .active a {
@@ -229,9 +258,9 @@ body {
     display: flex;
     gap: 3rem;
     align-items: flex-start;
-    background: linear-gradient(to right, var(--prime-dark-blue) 0%, transparent 50%),
-                linear-gradient(to top, var(--prime-dark-blue) 0%, transparent 30%);
+    background: linear-gradient(135deg, var(--samsung-background-light) 0%, var(--samsung-background-white) 100%); /* CHANGED */
     overflow: hidden;
+    color: #1a1a1a; /* ADD THIS */
 }
 
 .hero-background {
@@ -240,9 +269,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, #0f171e 0%, #1a2530 100%);
+    background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 100%); /* CHANGED from dark to light */
     z-index: -1;
 }
+
 
 .hero-content {
     flex: 2;
@@ -269,11 +299,11 @@ body {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-shadow: none; /* REMOVE text-shadow or change to subtle */
     letter-spacing: 1px;
     line-height: 1.2;
+    color: #1a1a1a; /* ADD THIS */
 }
-
 .hero-meta {
     display: flex;
     align-items: center;
@@ -298,7 +328,7 @@ body {
 .hero-description {
     font-size: 1.1rem;
     margin-bottom: 2rem;
-    color: #ccc;
+    color: #333; /* CHANGED from #ccc to #333 */
     max-width: 90%;
     line-height: 1.8;
 }
@@ -422,11 +452,12 @@ body {
 }
 
 .profile-card {
-    background: var(--prime-gray);
+    background: var(--samsung-background-white); /* CHANGED */
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 2rem;
-    border: 1px solid var(--prime-light-gray);
+    border: 1px solid var(--samsung-border); /* CHANGED */
+    box-shadow: var(--samsung-card-shadow); /* ADDED */
 }
 
 .profile-image {
@@ -622,18 +653,18 @@ body {
 
 .skill-card {
     flex: 0 0 220px;
-    background: var(--prime-gray);
+    background: var(--samsung-background-white); /* CHANGED */
     border-radius: 10px;
     padding: 1.5rem;
     text-align: center;
-    border: 1px solid var(--prime-light-gray);
+    border: 1px solid var(--samsung-border); /* CHANGED */
     transition: all 0.3s;
 }
 
 .skill-card:hover {
     border-color: var(--prime-blue);
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Lightened shadow */
 }
 
 .skill-icon {
@@ -688,10 +719,10 @@ body {
 }
 
 .experience-card {
-    background: var(--prime-gray);
+    background: var(--samsung-background-white); /* CHANGED */
     border-radius: 10px;
     overflow: hidden;
-    border: 1px solid var(--prime-light-gray);
+    border: 1px solid var(--samsung-border); /* CHANGED */
     transition: all 0.3s;
     position: relative;
 }
@@ -776,11 +807,11 @@ body {
 }
 
 .cert-card {
-    background: var(--prime-gray);
+    background: var(--samsung-background-white); /* CHANGED */
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    border: 1px solid var(--prime-light-gray);
+    border: 1px solid var(--samsung-border); /* CHANGED */
     transition: all 0.3s;
     position: relative;
 }
@@ -1026,11 +1057,12 @@ body {
 
 /* Contact Section */
 .prime-contact {
-    background: var(--prime-gray);
+    background: var(--samsung-background-white); /* CHANGED */
     border-radius: 15px;
     margin: 2rem;
     padding: 3rem;
-    border: 1px solid var(--prime-light-gray);
+    border: 1px solid var(--samsung-border); /* CHANGED */
+    box-shadow: var(--samsung-card-shadow); /* ADDED */
 }
 
 .contact-container {
@@ -1097,10 +1129,10 @@ body {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--prime-light-gray);
+    background: #f8f8f8; /* CHANGED to light gray */
+    border: 1px solid var(--samsung-border); /* CHANGED */
     border-radius: 4px;
-    color: var(--prime-white);
+    color: #333; /* CHANGED from var(--prime-white) to #333 */
     font-family: inherit;
     font-size: 1rem;
     transition: all 0.3s;
@@ -1140,11 +1172,12 @@ body {
 }
 
 /* Footer */
-.prime-footer {
-    background: var(--prime-black);
-    margin-top: 4rem;
-    padding: 3rem 2rem 1rem;
-    border-top: 1px solid var(--prime-light-gray);
+.samsung-footer {
+    background: var(--samsung-background-white);
+    border-top: 1px solid var(--samsung-border);
+    padding: 2rem;
+    text-align: center;
+    color: #333;
 }
 
 .footer-container {
@@ -1157,12 +1190,10 @@ body {
 }
 
 .footer-logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--prime-white);
+    color: var(--samsung-blue);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .footer-logo i {
