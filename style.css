@@ -1643,3 +1643,83 @@ img[src*="profilepic"] {
     font-weight: bold;
     font-size: 1.2rem;
 }
+
+/* =========================== */
+/* Samsung-Inspired Background */
+/* =========================== */
+
+:root {
+    --samsung-blue: #1428a0;
+    --samsung-light-blue: #3b5bff;
+    --background-light: #fafafa;
+    --card-white: #ffffff;
+    --border-light: #e0e0e0;
+}
+
+body {
+    background: var(--background-light);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Main container */
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Section styling - Samsung style */
+.section {
+    background: var(--card-white);
+    border-radius: 12px;
+    margin: 25px 0;
+    padding: 35px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add subtle pattern to some sections */
+.section:nth-child(even)::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(20, 40, 160, 0.03) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    background: linear-gradient(90deg, var(--samsung-blue), var(--samsung-light-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+}
+
+/* Samsung-style buttons */
+.btn-samsung {
+    background: linear-gradient(90deg, var(--samsung-blue), var(--samsung-light-blue));
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-samsung:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(20, 40, 160, 0.15);
+}
