@@ -1,23 +1,28 @@
-/* Amazon Prime Theme - Exact Replica */
+
 :root {
-    --prime-blue: #1428a0;
-    --prime-dark-blue: #f8f8f8;
-    --prime-black: #000000;
-    --prime-white: #ffffff;
-    --prime-gray: #ffffff;
-    --prime-light-gray: #ffffff;
-    --prime-red: #e50914;
-    --prime-yellow: #ffd700;
-    --prime-green: #46d369;
-    /* Samsung Theme Additions */
-    /* Keep existing variables above, add these: */
-    --samsung-blue: #1428a0;
-    --samsung-light-blue: #3b5bff;
-    --samsung-gradient: linear-gradient(90deg, var(--samsung-blue), var(--samsung-light-blue));
-    --samsung-card-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    --samsung-border: #e6e6e6;
-    --samsung-background-light: #f8f8f8;
-    --samsung-background-white: #ffffff;
+    --wix-bg-primary: #ffffff;
+    --wix-bg-secondary: #f8f9fa;
+    --wix-bg-tertiary: #f1f3f5;
+    --wix-accent-primary: #4d8af0;   
+    --wix-accent-secondary: #00c9c8;  
+    --wix-accent-tertiary: #ff6b35;   
+    --wix-accent-yellow: #ffd166;  
+    --wix-accent-green: #06d6a0;    
+    --wix-text-primary: #2d3748;
+    --wix-text-secondary: #4a5568;
+    --wix-text-tertiary: #718096;
+    --wix-text-light: #a0aec0;
+    --wix-gradient-blue: linear-gradient(135deg, #4d8af0, #6ba3ff);
+    --wix-gradient-teal: linear-gradient(135deg, #00c9c8, #00e6e5);
+    --wix-gradient-orange: linear-gradient(135deg, #ff6b35, #ff8e53);
+    --wix-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --wix-shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --wix-shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.1);
+    --wix-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --wix-radius-sm: 6px;
+    --wix-radius-md: 10px;
+    --wix-radius-lg: 16px;
+    --wix-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-card {
