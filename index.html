@@ -515,25 +515,17 @@
             
             <div class="contact-form">
                 <h3>Send a Message</h3>
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
+                <form action="https://www.cognitoforms.com/f/YOUR_FORM_ID" method="POST">
+  <input type="text" name="Name" placeholder="Your Name" required>
+  <input type="email" name="Email" placeholder="Your Email" required>
+  <input type="text" name="Subject" placeholder="Subject" required>
+  <textarea name="Message" placeholder="Your Message" required></textarea>
+  
+  <!-- Optional: Add these hidden fields for better tracking -->
+  <input type="hidden" name="__cognito_form_redirect" value="https://yourwebsite.com/thank-you">
+  
+  <button type="submit">Send Message</button>
+</form>
             </div>
         </div>
     </section>
