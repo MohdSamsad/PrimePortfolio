@@ -68,18 +68,18 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    background: rgba(255, 255, 255, 0.95); /* CHANGED to white */
+    padding: 0 2rem; /* Changed from 1rem 2rem */
+    background: rgba(255, 255, 255, 0.98);
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    transition: background 0.3s;
+    transition: all 0.3s;
     backdrop-filter: blur(10px);
     height: 70px;
-    color: #1a1a1a; /* ADD THIS for text color */
-    border-bottom: 1px solid var(--samsung-border); /* ADD THIS */
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 .prime-nav.scrolled {
@@ -90,7 +90,8 @@ body {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 3rem; /* Increased gap */
+    flex: 1;
 }
 
 .prime-logo {
@@ -99,112 +100,149 @@ body {
     gap: 8px;
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--prime-white);
+    color: #1428a0; /* Samsung blue */
     text-decoration: none;
+    min-width: 200px; /* Ensure consistent width */
 }
 
 .prime-logo i {
-    color: var(--prime-blue);
+    color: #1428a0;
     font-size: 1.5rem;
 }
 
 .prime-logo span {
     font-size: 1.6rem;
-    font-weight: 300;
+    font-weight: 700;
     letter-spacing: 1px;
+}.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem; /* Increased gap */
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-links a {
-    color: #333; /* CHANGED from #ccc to #333 */
+    color: #333;
     text-decoration: none;
-    font-size: 0.95rem;
-    font-weight: 500;
-    transition: color 0.3s;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s;
     display: flex;
     align-items: center;
     gap: 8px;
+    padding: 0.5rem 0;
+    position: relative;
+    height: 100%;
 }
 
 .nav-links a:hover {
-    color: var(--prime-blue); /* Keep blue on hover */
+    color: #1428a0;
 }
 
 .nav-links .active a {
-    color: var(--prime-white);
-    font-weight: 600;
+    color: #1428a0;
+    font-weight: 700;
+}
+
+.nav-links .active a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #1428a0;
+    border-radius: 2px 2px 0 0;
 }
 
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem; /* Increased gap */
+    justify-content: flex-end;
+    flex: 1;
+    min-width: 300px; /* Ensure enough space */
 }
 
 .search-box {
     position: relative;
     display: flex;
     align-items: center;
+    min-width: 250px;
 }
 
 .search-box i {
     position: absolute;
     left: 12px;
-    color: #999;
+    color: #666;
+    z-index: 1;
+    font-size: 1rem;
 }
 
 .search-box input {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    padding: 8px 12px 8px 36px;
-    color: var(--prime-white);
-    width: 250px;
-    font-size: 0.9rem;
+    background: #f5f5f7;
+    border: 1px solid #ddd;
+    border-radius: 20px; /* Rounded edges */
+    padding: 10px 20px 10px 40px;
+    color: #333;
+    width: 100%;
+    font-size: 0.95rem;
     transition: all 0.3s;
+    height: 40px;
 }
 
 .search-box input:focus {
     outline: none;
-    border-color: var(--prime-white);
-    background: rgba(255, 255, 255, 0.15);
-    width: 300px;
+    border-color: #1428a0;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(20, 40, 160, 0.1);
+    width: 300px; /* Expand on focus */
 }
 
 .user-profile {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background 0.3s;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    background: #f5f5f7;
+    border: 1px solid transparent;
 }
 
 .user-profile:hover {
-    background: rgba(255, 255, 255, 0.1);
+    background: white;
+    border-color: #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .user-profile img {
-    width: 36px;
-    height: 36px;
-    border-radius: 4px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
     object-fit: cover;
-    border: 2px solid var(--prime-blue);
+    border: 2px solid #1428a0;
 }
 
 .user-profile span {
-    font-size: 0.9rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
 }
 
 .mobile-menu-btn {
     display: none;
     cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--prime-white);
+    font-size: 1.8rem;
+    color: #333;
     background: none;
     border: none;
     padding: 5px;
+    margin-left: auto;
 }
 
 /* Mobile Menu */
