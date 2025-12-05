@@ -717,7 +717,7 @@ body::before {
 }
 
 /* =============================================== */
-/* SKILLS & CAROUSEL */
+/* SKILLS CAROUSEL */
 /* =============================================== */
 
 .prime-carousel, .prime-experience, .prime-certifications, .prime-publications, .prime-contact {
@@ -749,28 +749,75 @@ body::before {
     font-size: 0.9rem;
 }
 
+/* =============================================== */
+/* AUTO-SCROLLING CAROUSEL - FIXED */
+/* =============================================== */
+
+.carousel-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--wix-radius-lg);
+    padding: 20px 0;
+}
+
 .skills-carousel {
     display: flex;
     gap: 1.5rem;
-    overflow-x: auto;
     padding: 1rem 0.5rem;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;
-    scrollbar-color: var(--wix-accent-primary) var(--wix-bg-tertiary);
+    width: max-content;
+    animation: scrollCarousel 30s linear infinite;
 }
 
-.skills-carousel::-webkit-scrollbar {
-    height: 6px;
+/* Auto-scroll animation */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% + 100vw));
+    }
 }
 
-.skills-carousel::-webkit-scrollbar-track {
-    background: var(--wix-bg-tertiary);
-    border-radius: 3px;
+/* Pause animation on hover */
+.carousel-track-container:hover .skills-carousel {
+    animation-play-state: paused;
 }
 
-.skills-carousel::-webkit-scrollbar-thumb {
-    background: var(--wix-accent-primary);
-    border-radius: 3px;
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: var(--wix-shadow-md);
+    transition: var(--wix-transition);
+}
+
+.carousel-btn:hover {
+    background: var(--wix-bg-primary);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: 10px;
+}
+
+.carousel-btn.next {
+    right: 10px;
 }
 
 .skill-card {
@@ -782,12 +829,15 @@ body::before {
     border: 1px solid var(--wix-border-light);
     transition: var(--wix-transition);
     box-shadow: var(--wix-shadow-card);
+    position: relative;
+    cursor: pointer;
 }
 
 .skill-card:hover {
     border-color: var(--wix-accent-primary);
-    transform: translateY(-5px);
+    transform: translateY(-10px);
     box-shadow: var(--wix-shadow-lg);
+    z-index: 10;
 }
 
 .skill-icon {
@@ -816,6 +866,12 @@ body::before {
     overflow: hidden;
 }
 
+.skill-progress .progress {
+    height: 100%;
+    background: var(--wix-gradient-blue);
+    border-radius: 3px;
+}
+
 .preview-btn {
     background: transparent;
     color: var(--wix-accent-primary);
@@ -836,59 +892,7 @@ body::before {
 }
 
 /* =============================================== */
-/* AUTO-SCROLLING CAROUSEL */
-/* =============================================== */
-
-.carousel-track-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--wix-radius-lg);
-    margin: 0 1rem;
-}
-
-.skills-carousel {
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem 0.5rem;
-    animation: scrollCarousel 40s linear infinite;
-    width: max-content;
-}
-
-/* Animation for auto-scrolling */
-@keyframes scrollCarousel {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-280px * 5 - 1.5rem * 4)); /* Move by width of 5 cards */
-    }
-}
-
-/* Pause animation on hover */
-.carousel-track-container:hover .skills-carousel {
-    animation-play-state: paused;
-}
-
-/* Hide duplicate items on mobile */
-@media (max-width: 768px) {
-    .skill-card.duplicate {
-        display: none;
-    }
-    
-    .skills-carousel {
-        animation: none;
-        overflow-x: auto;
-        scroll-behavior: smooth;
-        width: 100%;
-    }
-    
-    .carousel-track-container {
-        overflow-x: auto;
-    }
-}
-
-/* =============================================== */
-/* SKILL MODALS - HOVER EFFECT */
+/* SKILL MODALS - FIXED OVERLAY */
 /* =============================================== */
 
 .skill-modal {
@@ -896,14 +900,28 @@ body::before {
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    animation: fadeIn 0.3s ease;
+    animation: modalFadeIn 0.3s ease;
+}
+
+.skill-modal.active {
+    display: flex;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .modal-content {
@@ -911,20 +929,21 @@ body::before {
     border-radius: var(--wix-radius-lg);
     max-width: 500px;
     width: 100%;
-    max-height: 80vh;
+    max-height: 85vh;
     overflow-y: auto;
-    box-shadow: var(--wix-shadow-lg);
-    animation: slideUp 0.4s ease;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes slideUp {
+@keyframes modalSlideUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(50px) scale(0.95);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
     }
 }
 
@@ -934,21 +953,24 @@ body::before {
     align-items: center;
     padding: 1.5rem 1.5rem 1rem;
     border-bottom: 1px solid var(--wix-border-light);
+    background: var(--wix-gradient-blue);
+    color: white;
+    border-radius: var(--wix-radius-lg) var(--wix-radius-lg) 0 0;
 }
 
 .modal-header h3 {
     display: flex;
     align-items: center;
     gap: 10px;
-    color: var(--wix-text-primary);
     font-size: 1.5rem;
+    font-weight: 700;
 }
 
 .modal-close {
-    background: none;
+    background: rgba(255, 255, 255, 0.2);
     border: none;
-    font-size: 2rem;
-    color: var(--wix-text-tertiary);
+    font-size: 1.5rem;
+    color: white;
     cursor: pointer;
     padding: 0;
     width: 40px;
@@ -961,8 +983,8 @@ body::before {
 }
 
 .modal-close:hover {
-    background: var(--wix-bg-tertiary);
-    color: var(--wix-text-primary);
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
 }
 
 .modal-body {
@@ -974,6 +996,8 @@ body::before {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     font-weight: 600;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--wix-bg-tertiary);
 }
 
 .skill-details {
@@ -1000,6 +1024,7 @@ body::before {
 .detail-item span {
     color: var(--wix-text-secondary);
     line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 .skill-stats {
@@ -1009,6 +1034,7 @@ body::before {
     padding: 1.5rem;
     background: var(--wix-bg-tertiary);
     border-radius: var(--wix-radius-md);
+    margin-top: 1rem;
 }
 
 .skill-stats .stat {
@@ -1026,44 +1052,9 @@ body::before {
 .skill-stats span {
     color: var(--wix-text-tertiary);
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
-/* Alternative hover modal (desktop only) */
-.skill-card {
-    position: relative;
-    transition: var(--wix-transition);
-}
-
-.skill-card:hover {
-    transform: translateY(-10px) scale(1.05);
-    z-index: 100;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-/* Mobile touch improvements */
-@media (max-width: 768px) {
-    .skill-modal {
-        padding: 10px;
-    }
-    
-    .modal-content {
-        max-height: 90vh;
-    }
-    
-    .modal-body {
-        padding: 1rem;
-    }
-    
-    .skill-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-        padding: 1rem;
-    }
-    
-    .skill-stats strong {
-        font-size: 1.5rem;
-    }
-}
 /* =============================================== */
 /* EXPERIENCE */
 /* =============================================== */
@@ -1476,6 +1467,57 @@ body::before {
 }
 
 /* =============================================== */
+/* UTILITY CLASSES */
+/* =============================================== */
+
+.section-card {
+    background: var(--wix-bg-primary);
+    border-radius: var(--wix-radius-lg);
+    box-shadow: var(--wix-shadow-card);
+    border: 1px solid var(--wix-border-light);
+    padding: 30px;
+    margin: 20px auto;
+    max-width: 1200px;
+    transition: box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+    box-shadow: var(--wix-shadow-lg);
+}
+
+.gradient-heading {
+    background: var(--wix-gradient-blue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+.slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =============================================== */
 /* RESPONSIVE DESIGN - FIXED */
 /* =============================================== */
 
@@ -1596,7 +1638,7 @@ body::before {
         justify-content: center;
     }
     
-    /* Section adjustments */
+    /* Carousel adjustments */
     .carousel-header {
         flex-direction: column;
         align-items: flex-start;
@@ -1609,9 +1651,31 @@ body::before {
     }
     
     .skills-carousel {
-        padding: 1rem 0;
+        animation: none;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        width: 100%;
+        padding: 1rem;
     }
     
+    .carousel-track-container {
+        overflow-x: auto;
+    }
+    
+    .carousel-btn {
+        display: none;
+    }
+    
+    /* Hide duplicate items on mobile */
+    .skill-card.duplicate {
+        display: none;
+    }
+    
+    .skill-card {
+        flex: 0 0 200px;
+    }
+    
+    /* Experience and certifications */
     .experience-grid, .certifications-grid {
         grid-template-columns: 1fr;
     }
@@ -1649,6 +1713,38 @@ body::before {
     
     .copyright {
         text-align: center;
+    }
+    
+    /* Modal mobile optimizations */
+    .skill-modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        max-height: 90vh;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .skill-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .skill-stats strong {
+        font-size: 1.5rem;
+    }
+    
+    .modal-header {
+        padding: 1rem 1rem 0.5rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.2rem;
     }
 }
 
@@ -1688,66 +1784,11 @@ body::before {
         font-size: 1.5rem;
     }
     
-    .skill-card {
-        flex: 0 0 200px;
-    }
-    
     .prime-carousel, .prime-experience, .prime-certifications, .prime-publications, .prime-contact {
         padding: 2rem 1rem;
     }
     
     .prime-nav {
         padding: 0 15px;
-    }
-}
-
-/* =============================================== */
-/* UTILITY CLASSES */
-/* =============================================== */
-
-.section-card {
-    background: var(--wix-bg-primary);
-    border-radius: var(--wix-radius-lg);
-    box-shadow: var(--wix-shadow-card);
-    border: 1px solid var(--wix-border-light);
-    padding: 30px;
-    margin: 20px auto;
-    max-width: 1200px;
-    transition: box-shadow 0.3s ease;
-}
-
-.section-card:hover {
-    box-shadow: var(--wix-shadow-lg);
-}
-
-.gradient-heading {
-    background: var(--wix-gradient-blue);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
-}
-
-.fade-in {
-    animation: fadeIn 1s ease-in;
-}
-
-.slide-up {
-    animation: slideUp 0.8s ease-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { 
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0);
     }
 }
