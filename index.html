@@ -178,20 +178,17 @@
         </div>
     </section>
 
-    <!-- Skills Carousel -->
+        <!-- Skills Carousel -->
     <section id="skills" class="prime-carousel">
         <div class="carousel-header">
             <h2><i class="fas fa-database"></i> Database Platforms</h2>
             <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
         </div>
         
-        <div class="carousel-container">
-            <button class="carousel-btn prev">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            
+        <div class="carousel-track-container">
             <div class="skills-carousel">
-                <div class="skill-card">
+                <!-- IBM DB2 Card -->
+                <div class="skill-card" data-skill="db2">
                     <div class="skill-icon">
                         <i class="fab fa-ibm"></i>
                     </div>
@@ -200,12 +197,66 @@
                     <div class="skill-progress">
                         <div class="progress" style="width: 98%"></div>
                     </div>
-                    <button class="preview-btn">
+                    <button class="preview-btn" onclick="openSkillModal('db2')">
                         <i class="fas fa-play"></i> Preview
                     </button>
+                    
+                    <!-- Skill Details Modal (Hidden by default) -->
+                    <div class="skill-modal" id="modal-db2">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fab fa-ibm"></i> IBM DB2</h3>
+                                <button class="modal-close" onclick="closeSkillModal('db2')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Expert Level | 15+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Database Administration & Architecture</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Tuning & Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>High Availability (HADR) Setup</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>DB2 Migration & Upgrades</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Backup & Recovery Strategies</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Security & Compliance Implementation</span>
+                                    </div>
+                                </div>
+                                <div class="skill-stats">
+                                    <div class="stat">
+                                        <strong>98%</strong>
+                                        <span>Proficiency</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>15+</strong>
+                                        <span>Years</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>50+</strong>
+                                        <span>Projects</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
+                <!-- PostgreSQL Card -->
+                <div class="skill-card" data-skill="postgresql">
                     <div class="skill-icon">
                         <i class="fas fa-database"></i>
                     </div>
@@ -214,12 +265,51 @@
                     <div class="skill-progress">
                         <div class="progress" style="width: 95%"></div>
                     </div>
-                    <button class="preview-btn">
+                    <button class="preview-btn" onclick="openSkillModal('postgresql')">
                         <i class="fas fa-play"></i> Preview
                     </button>
+                    
+                    <div class="skill-modal" id="modal-postgresql">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-database"></i> PostgreSQL</h3>
+                                <button class="modal-close" onclick="closeSkillModal('postgresql')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Expert Level | 10+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>PostgreSQL Administration & Tuning</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Replication (Streaming & Logical)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Extension Development</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Migration from other RDBMS</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Author of PostgreSQL Cookbook</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
+                <!-- MySQL Card -->
+                <div class="skill-card" data-skill="mysql">
                     <div class="skill-icon">
                         <i class="fas fa-server"></i>
                     </div>
@@ -228,12 +318,39 @@
                     <div class="skill-progress">
                         <div class="progress" style="width: 90%"></div>
                     </div>
-                    <button class="preview-btn">
+                    <button class="preview-btn" onclick="openSkillModal('mysql')">
                         <i class="fas fa-play"></i> Preview
                     </button>
+                    
+                    <div class="skill-modal" id="modal-mysql">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-server"></i> MySQL</h3>
+                                <button class="modal-close" onclick="closeSkillModal('mysql')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 8+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>MySQL Cluster & Replication</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Schema & Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>High Availability Solutions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
+                <!-- MongoDB Card -->
+                <div class="skill-card" data-skill="mongodb">
                     <div class="skill-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
@@ -242,12 +359,39 @@
                     <div class="skill-progress">
                         <div class="progress" style="width: 88%"></div>
                     </div>
-                    <button class="preview-btn">
+                    <button class="preview-btn" onclick="openSkillModal('mongodb')">
                         <i class="fas fa-play"></i> Preview
                     </button>
+                    
+                    <div class="skill-modal" id="modal-mongodb">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-leaf"></i> MongoDB</h3>
+                                <button class="modal-close" onclick="closeSkillModal('mongodb')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 5+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>MongoDB Administration</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sharding & Replication</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Aggregation Framework</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="skill-card">
+                <!-- AWS Card -->
+                <div class="skill-card" data-skill="aws">
                     <div class="skill-icon">
                         <i class="fas fa-cloud"></i>
                     </div>
@@ -256,18 +400,74 @@
                     <div class="skill-progress">
                         <div class="progress" style="width: 90%"></div>
                     </div>
-                    <button class="preview-btn">
+                    <button class="preview-btn" onclick="openSkillModal('aws')">
                         <i class="fas fa-play"></i> Preview
                     </button>
+                    
+                    <div class="skill-modal" id="modal-aws">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-cloud"></i> AWS Cloud Services</h3>
+                                <button class="modal-close" onclick="closeSkillModal('aws')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 6+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>AWS RDS (PostgreSQL, MySQL)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Database Migration Service (DMS)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Aurora PostgreSQL/MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duplicate items for continuous scroll (hidden on mobile) -->
+                <div class="skill-card duplicate" data-skill="db2">
+                    <div class="skill-icon">
+                        <i class="fab fa-ibm"></i>
+                    </div>
+                    <h3>IBM DB2</h3>
+                    <p>Expert Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 98%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card duplicate" data-skill="postgresql">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>PostgreSQL</h3>
+                    <p>Expert Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 95%"></div>
+                    </div>
+                </div>
+                
+                <div class="skill-card duplicate" data-skill="mysql">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>MySQL</h3>
+                    <p>Advanced Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
                 </div>
             </div>
-            
-            <button class="carousel-btn next">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
     </section>
-
+    
     <!-- Experience Section -->
     <section id="experience" class="prime-experience">
         <div class="carousel-header">
