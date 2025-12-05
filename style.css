@@ -845,7 +845,11 @@ body::before {
     color: var(--wix-accent-primary);
     margin-bottom: 1rem;
 }
-
+.skill-icon img.db2-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+}
 .skill-card h3 {
     margin-bottom: 0.5rem;
     font-size: 1.2rem;
