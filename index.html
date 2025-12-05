@@ -847,93 +847,230 @@
 
     <!-- Scripts -->
     <script>
-        // Mobile menu toggle
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
             
-            if (mobileMenuBtn && mobileMenu) {
-                // Toggle mobile menu
-                mobileMenuBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    mobileMenu.classList.toggle('active');
-                    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            // Close mobile menu when clicking on a link
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
                 });
-                
-                // Close mobile menu when clicking on a link
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    });
-                });
-                
-                // Close mobile menu when clicking outside
-                document.addEventListener('click', (e) => {
-                    if (mobileMenu.classList.contains('active') && 
-                        !mobileMenu.contains(e.target) && 
-                        !mobileMenuBtn.contains(e.target)) {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-                
-                // Close mobile menu on escape key
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
-                        mobileMenu.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
-                });
-            }
+            });
             
-            // Skills carousel navigation
-            const carouselPrev = document.querySelector('.carousel-btn.prev');
-            const carouselNext = document.querySelector('.carousel-btn.next');
-            const skillsCarousel = document.querySelector('.skills-carousel');
-            
-            if (carouselPrev && carouselNext && skillsCarousel) {
-                carouselPrev.addEventListener('click', () => {
-                    skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
-                });
-                
-                carouselNext.addEventListener('click', () => {
-                    skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
-                });
-            }
-            
-            // Navbar scroll effect
-            window.addEventListener('scroll', () => {
-                const nav = document.querySelector('.prime-nav');
-                if (window.scrollY > 50) {
-                    nav.classList.add('scrolled');
-                } else {
-                    nav.classList.remove('scrolled');
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu.classList.contains('active') && 
+                    !mobileMenu.contains(e.target) && 
+                    !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
                 }
             });
             
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
+            // Close mobile menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Pause carousel on hover
+        const carouselContainer = document.querySelector('.carousel-track-container');
+        const skillsCarousel = document.querySelector('.skills-carousel');
+        
+        if (carouselContainer && skillsCarousel) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                skillsCarousel.style.animationPlayState = 'paused';
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                skillsCarousel.style.animationPlayState = 'running';
+            });
+        }
+        
+        // Skills carousel navigation
+        const carouselPrev = document.querySelector('.carousel-btn.prev');
+        const carouselNext = document.querySelector('.carousel-btn.next');
+        
+        if (carouselPrev && carouselNext && skillsCarousel) {
+            carouselPrev.addEventListener('click', () => {
+                skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+            
+            carouselNext.addEventListener('click', () => {
+                skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.prime-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.prime-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
                     
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerHeight = document.querySelector('.prime-nav').offsetHeight;
-                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-                        
-                        window.scrollTo({
-                            top: targetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
-    </script>
+        
+        // Touch support for carousel on mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        if (skillsCarousel) {
+            skillsCarousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            skillsCarousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left
+                if (skillsCarousel) {
+                    skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right
+                if (skillsCarousel) {
+                    skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+                }
+            }
+        }
+    });
+
+    // Skill Modal Functions
+    function openSkillModal(skillId) {
+        const modal = document.getElementById(`modal-${skillId}`);
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Close on escape key
+            const closeOnEsc = (e) => {
+                if (e.key === 'Escape') {
+                    closeSkillModal(skillId);
+                    document.removeEventListener('keydown', closeOnEsc);
+                }
+            };
+            document.addEventListener('keydown', closeOnEsc);
+        }
+    }
+    
+    function closeSkillModal(skillId) {
+        const modal = document.getElementById(`modal-${skillId}`);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('skill-modal')) {
+            e.target.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Alternative: Hover effect for desktop (optional)
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    skillCards.forEach(card => {
+        card.addEventListener('mouseenter', (e) => {
+            // Add hover effect
+            card.style.zIndex = '100';
+        });
+        
+        card.addEventListener('mouseleave', (e) => {
+            // Remove hover effect
+            card.style.zIndex = '1';
+        });
+    });
+
+    // Contact form handling (keep your existing form code)
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Submit form via AJAX
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        contactForm.reset();
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    alert('Failed to send message. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Network error. Please try again.');
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+</script>
 </body>
 </html>
