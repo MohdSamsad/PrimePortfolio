@@ -846,8 +846,8 @@ body::before {
     margin-bottom: 1rem;
 }
 .skill-icon img.db2-logo {
-    width: 80px;
-    height: 100px;
+    width: 400px;
+    height: 400px;
     object-fit: contain;
 }
 .skill-card h3 {
