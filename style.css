@@ -836,6 +836,235 @@ body::before {
 }
 
 /* =============================================== */
+/* AUTO-SCROLLING CAROUSEL */
+/* =============================================== */
+
+.carousel-track-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--wix-radius-lg);
+    margin: 0 1rem;
+}
+
+.skills-carousel {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0.5rem;
+    animation: scrollCarousel 40s linear infinite;
+    width: max-content;
+}
+
+/* Animation for auto-scrolling */
+@keyframes scrollCarousel {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-280px * 5 - 1.5rem * 4)); /* Move by width of 5 cards */
+    }
+}
+
+/* Pause animation on hover */
+.carousel-track-container:hover .skills-carousel {
+    animation-play-state: paused;
+}
+
+/* Hide duplicate items on mobile */
+@media (max-width: 768px) {
+    .skill-card.duplicate {
+        display: none;
+    }
+    
+    .skills-carousel {
+        animation: none;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        width: 100%;
+    }
+    
+    .carousel-track-container {
+        overflow-x: auto;
+    }
+}
+
+/* =============================================== */
+/* SKILL MODALS - HOVER EFFECT */
+/* =============================================== */
+
+.skill-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--wix-bg-primary);
+    border-radius: var(--wix-radius-lg);
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: var(--wix-shadow-lg);
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--wix-border-light);
+}
+
+.modal-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--wix-text-primary);
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--wix-text-tertiary);
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: var(--wix-transition);
+}
+
+.modal-close:hover {
+    background: var(--wix-bg-tertiary);
+    color: var(--wix-text-primary);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-body h4 {
+    color: var(--wix-accent-primary);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.skill-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 2rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.detail-item i {
+    color: var(--wix-accent-green);
+    font-size: 1rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.detail-item span {
+    color: var(--wix-text-secondary);
+    line-height: 1.5;
+}
+
+.skill-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--wix-bg-tertiary);
+    border-radius: var(--wix-radius-md);
+}
+
+.skill-stats .stat {
+    text-align: center;
+}
+
+.skill-stats strong {
+    display: block;
+    font-size: 2rem;
+    color: var(--wix-accent-primary);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.skill-stats span {
+    color: var(--wix-text-tertiary);
+    font-size: 0.9rem;
+}
+
+/* Alternative hover modal (desktop only) */
+.skill-card {
+    position: relative;
+    transition: var(--wix-transition);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    z-index: 100;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+    .skill-modal {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        max-height: 90vh;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .skill-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+    
+    .skill-stats strong {
+        font-size: 1.5rem;
+    }
+}
+/* =============================================== */
 /* EXPERIENCE */
 /* =============================================== */
 
