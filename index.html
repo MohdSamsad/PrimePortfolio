@@ -10,6 +10,245 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amazon+Ember:wght@300;400;500;600;700&family=Segoe+UI:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-filled/50/forward--v1.png">
+    <style>
+        /* Prime Video Style Modal */
+        .prime-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #0c1e25 0%, #1a3a4a 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            position: relative;
+        }
+
+        .modal-header {
+            background: linear-gradient(to right, #00a8e1, #1464a5);
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            color: white;
+            font-size: 28px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .modal-left {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .modal-right {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .skill-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .feature-item {
+            background: rgba(0, 168, 225, 0.1);
+            border-left: 4px solid #00a8e1;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .feature-item i {
+            color: #00a8e1;
+            margin-right: 10px;
+        }
+
+        .feature-item span {
+            color: #e1e1e1;
+            font-size: 15px;
+        }
+
+        .skill-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 3px solid #00a8e1;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 32px;
+            color: #00a8e1;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .stat-box span {
+            color: #b0b0b0;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .level-badge {
+            background: #ff9900;
+            color: #000;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .experience-years {
+            color: #e1e1e1;
+            font-size: 16px;
+        }
+
+        .modal-description {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .certifications-list {
+            margin-top: 20px;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+        }
+
+        .cert-item i {
+            color: #00a8e1;
+            font-size: 18px;
+        }
+
+        .cert-item span {
+            color: #e1e1e1;
+            font-size: 14px;
+        }
+
+        /* Modal Content Colors for different skills */
+        #modal-db2 .modal-header {
+            background: linear-gradient(to right, #0062ff, #003d99);
+        }
+
+        #modal-postgresql .modal-header {
+            background: linear-gradient(to right, #336791, #1a476f);
+        }
+
+        #modal-mysql .modal-header {
+            background: linear-gradient(to right, #00758f, #f29111);
+        }
+
+        #modal-mongodb .modal-header {
+            background: linear-gradient(to right, #13aa52, #0d7a3d);
+        }
+
+        #modal-aws .modal-header {
+            background: linear-gradient(to right, #ff9900, #ff6600);
+        }
+
+        @media (max-width: 992px) {
+            .modal-body {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .modal-container {
+                margin: 20px;
+            }
+            
+            .skill-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Top Navigation -->
@@ -196,59 +435,6 @@
                     <button class="preview-btn" onclick="openSkillModal('db2')">
                         <i class="fas fa-play"></i> Preview
                     </button>
-                    
-                    <!-- Skill Details Modal (Hidden by default) -->
-                    <div class="skill-modal" id="modal-db2">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fab fa-ibm"></i> IBM DB2</h3>
-                                <button class="modal-close" onclick="closeSkillModal('db2')">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Expert Level | 15+ Years Experience</h4>
-                                <div class="skill-details">
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Database Administration & Architecture</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Performance Tuning & Optimization</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>High Availability (HADR) Setup</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>DB2 Migration & Upgrades</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Backup & Recovery Strategies</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Security & Compliance Implementation</span>
-                                    </div>
-                                </div>
-                                <div class="skill-stats">
-                                    <div class="stat">
-                                        <strong>98%</strong>
-                                        <span>Proficiency</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>15+</strong>
-                                        <span>Years</span>
-                                    </div>
-                                    <div class="stat">
-                                        <strong>50+</strong>
-                                        <span>Projects</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- PostgreSQL Card -->
@@ -264,44 +450,6 @@
                     <button class="preview-btn" onclick="openSkillModal('postgresql')">
                         <i class="fas fa-play"></i> Preview
                     </button>
-                    
-                    <div class="skill-modal" id="modal-postgresql">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fas fa-database"></i> PostgreSQL</h3>
-                                <button class="modal-close" onclick="closeSkillModal('postgresql')">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Expert Level | 10+ Years Experience</h4>
-                                <div class="skill-details">
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>PostgreSQL Administration & Tuning</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Replication (Streaming & Logical)</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Performance Optimization</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Extension Development</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Migration from other RDBMS</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Author of PostgreSQL Cookbook</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- MySQL Card -->
@@ -317,32 +465,6 @@
                     <button class="preview-btn" onclick="openSkillModal('mysql')">
                         <i class="fas fa-play"></i> Preview
                     </button>
-                    
-                    <div class="skill-modal" id="modal-mysql">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fas fa-server"></i> MySQL</h3>
-                                <button class="modal-close" onclick="closeSkillModal('mysql')">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Advanced Level | 8+ Years Experience</h4>
-                                <div class="skill-details">
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>MySQL Cluster & Replication</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Performance Schema & Optimization</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>High Availability Solutions</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- MongoDB Card -->
@@ -358,32 +480,6 @@
                     <button class="preview-btn" onclick="openSkillModal('mongodb')">
                         <i class="fas fa-play"></i> Preview
                     </button>
-                    
-                    <div class="skill-modal" id="modal-mongodb">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fas fa-leaf"></i> MongoDB</h3>
-                                <button class="modal-close" onclick="closeSkillModal('mongodb')">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Advanced Level | 5+ Years Experience</h4>
-                                <div class="skill-details">
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>MongoDB Administration</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Sharding & Replication</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Aggregation Framework</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 
                 <!-- AWS Card -->
@@ -399,35 +495,7 @@
                     <button class="preview-btn" onclick="openSkillModal('aws')">
                         <i class="fas fa-play"></i> Preview
                     </button>
-                    
-                    <div class="skill-modal" id="modal-aws">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h3><i class="fas fa-cloud"></i> AWS Cloud Services</h3>
-                                <button class="modal-close" onclick="closeSkillModal('aws')">&times;</button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Advanced Level | 6+ Years Experience</h4>
-                                <div class="skill-details">
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>AWS RDS (PostgreSQL, MySQL)</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Database Migration Service (DMS)</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <i class="fas fa-check-circle"></i>
-                                        <span>Aurora PostgreSQL/MySQL</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-                
-                <!-- REMOVED DUPLICATE CARDS - Only showing 5 unique items -->
             </div>
         </div>
     </section>
@@ -809,6 +877,485 @@
         </div>
     </footer>
 
+    <!-- Prime Video Style Skill Modals -->
+    <!-- IBM DB2 Modal -->
+    <div class="prime-modal" id="modal-db2">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fab fa-ibm"></i> IBM DB2 - Expert Level</h2>
+                <button class="modal-close" onclick="closeSkillModal('db2')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="experience-level">
+                        <span class="level-badge">EXPERT LEVEL</span>
+                        <span class="experience-years">15+ Years Experience</span>
+                    </div>
+                    
+                    <p class="modal-description">
+                        Deep expertise in IBM DB2 database administration, architecture, and optimization with over 15 years of enterprise experience. Specialized in high availability solutions, performance tuning, and large-scale migrations.
+                    </p>
+                    
+                    <div class="skill-features">
+                        <div class="feature-item">
+                            <i class="fas fa-server"></i>
+                            <span>Database Administration & Architecture</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Performance Tuning & Optimization</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>High Availability (HADR) Setup</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>DB2 Migration & Upgrades</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-backward"></i>
+                            <span>Backup & Recovery Strategies</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Security & Compliance Implementation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-box">
+                            <strong>98%</strong>
+                            <span>Proficiency</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>15+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>50+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-right">
+                    <h3><i class="fas fa-award"></i> Certifications</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>IBM Certified Database Administrator - DB2 10.1</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-certificate"></i>
+                            <span>IBM Certified Database Associate - DB2 9 Fundamentals</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><i class="fas fa-tools"></i> Key Tools</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>IBM Data Studio</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>DB2 Control Center</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tivoli Storage Manager</span>
+                        </div>
+                    </div>
+                    
+                    <button class="play-btn" style="width: 100%; margin-top: 30px; padding: 12px;">
+                        <i class="fas fa-file-download"></i> Download Detailed Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PostgreSQL Modal -->
+    <div class="prime-modal" id="modal-postgresql">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-database"></i> PostgreSQL - Expert Level</h2>
+                <button class="modal-close" onclick="closeSkillModal('postgresql')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="experience-level">
+                        <span class="level-badge">EXPERT LEVEL</span>
+                        <span class="experience-years">10+ Years Experience</span>
+                    </div>
+                    
+                    <p class="modal-description">
+                        Expert PostgreSQL administration with specialization in replication, performance tuning, and extension development. Author of PostgreSQL Cookbook with extensive experience in enterprise deployments and migrations.
+                    </p>
+                    
+                    <div class="skill-features">
+                        <div class="feature-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>PostgreSQL Administration & Tuning</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Replication (Streaming & Logical)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Performance Optimization</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-code"></i>
+                            <span>Extension Development</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span>Migration from other RDBMS</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-book"></i>
+                            <span>Author of PostgreSQL Cookbook</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-box">
+                            <strong>95%</strong>
+                            <span>Proficiency</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>10+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>40+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-right">
+                    <h3><i class="fas fa-book"></i> Publication</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-book"></i>
+                            <span>PostgreSQL 15 Cookbook (Available on Amazon)</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><i class="fas fa-tools"></i> Key Tools</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>pgAdmin 4</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>PostgreSQL 15/16</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>pgBouncer</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://a.co/d/9hFJVkG" target="_blank" class="play-btn" style="width: 100%; margin-top: 30px; padding: 12px; text-decoration: none; display: block; text-align: center;">
+                        <i class="fab fa-amazon"></i> View Book on Amazon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MySQL Modal -->
+    <div class="prime-modal" id="modal-mysql">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-server"></i> MySQL - Advanced Level</h2>
+                <button class="modal-close" onclick="closeSkillModal('mysql')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="experience-level">
+                        <span class="level-badge">ADVANCED LEVEL</span>
+                        <span class="experience-years">8+ Years Experience</span>
+                    </div>
+                    
+                    <p class="modal-description">
+                        Advanced MySQL expertise with focus on clustering, replication, and high availability solutions. Extensive experience in performance tuning, backup strategies, and large-scale database deployments.
+                    </p>
+                    
+                    <div class="skill-features">
+                        <div class="feature-item">
+                            <i class="fas fa-cluster"></i>
+                            <span>MySQL Cluster & Replication</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Performance Schema & Optimization</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>High Availability Solutions</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>Backup & Recovery Management</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-lock"></i>
+                            <span>Security Hardening</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cloud"></i>
+                            <span>Cloud Deployments (AWS RDS)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-box">
+                            <strong>90%</strong>
+                            <span>Proficiency</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>8+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>30+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-right">
+                    <h3><i class="fas fa-tools"></i> Key Tools</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MySQL Workbench</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>Percona Toolkit</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MySQL Enterprise Edition</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><i class="fas fa-cloud"></i> Cloud Experience</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS RDS for MySQL</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Aurora MySQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MongoDB Modal -->
+    <div class="prime-modal" id="modal-mongodb">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-leaf"></i> MongoDB - Advanced Level</h2>
+                <button class="modal-close" onclick="closeSkillModal('mongodb')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="experience-level">
+                        <span class="level-badge">ADVANCED LEVEL</span>
+                        <span class="experience-years">5+ Years Experience</span>
+                    </div>
+                    
+                    <p class="modal-description">
+                        Advanced MongoDB administration with expertise in sharding, replication, and aggregation framework. Experience in designing scalable NoSQL architectures and performance optimization for document databases.
+                    </p>
+                    
+                    <div class="skill-features">
+                        <div class="feature-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>MongoDB Administration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Sharding & Replication</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Aggregation Framework</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-bolt"></i>
+                            <span>Performance Tuning</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security & Authentication</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <span>Backup & Recovery</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-box">
+                            <strong>88%</strong>
+                            <span>Proficiency</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>5+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>20+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-right">
+                    <h3><i class="fas fa-tools"></i> Key Tools</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MongoDB Atlas</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MongoDB Compass</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MongoDB Enterprise</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><i class="fas fa-cloud"></i> Cloud Experience</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS DocumentDB</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MongoDB Atlas on AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AWS Modal -->
+    <div class="prime-modal" id="modal-aws">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2><i class="fas fa-cloud"></i> AWS Cloud Services - Advanced Level</h2>
+                <button class="modal-close" onclick="closeSkillModal('aws')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <div class="experience-level">
+                        <span class="level-badge">ADVANCED LEVEL</span>
+                        <span class="experience-years">6+ Years Experience</span>
+                    </div>
+                    
+                    <p class="modal-description">
+                        Advanced AWS cloud expertise with focus on database services, migration solutions, and cloud architecture. Extensive experience in designing and implementing scalable, secure, and highly available database solutions on AWS.
+                    </p>
+                    
+                    <div class="skill-features">
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS RDS (PostgreSQL, MySQL)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Database Migration Service (DMS)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Aurora PostgreSQL/MySQL</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>ElastiCache (Redis/Memcached)</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>DocumentDB & DynamoDB</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fab fa-aws"></i>
+                            <span>CloudFormation & IAM</span>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-stats">
+                        <div class="stat-box">
+                            <strong>90%</strong>
+                            <span>Proficiency</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>6+</strong>
+                            <span>Years</span>
+                        </div>
+                        <div class="stat-box">
+                            <strong>25+</strong>
+                            <span>Projects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-right">
+                    <h3><i class="fas fa-certificate"></i> Key Services</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>AWS RDS (Multi-Region Setup)</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Aurora Global Database</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fab fa-aws"></i>
+                            <span>Database Migration Service</span>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;"><i class="fas fa-project-diagram"></i> Migration Projects</h3>
+                    <div class="certifications-list">
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>On-prem DB2 to AWS RDS PostgreSQL</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MySQL to Aurora MySQL Migration</span>
+                        </div>
+                        <div class="cert-item">
+                            <i class="fas fa-check"></i>
+                            <span>MongoDB to DocumentDB Migration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script>
     // Mobile menu toggle
@@ -818,14 +1365,12 @@
         const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
         
         if (mobileMenuBtn && mobileMenu) {
-            // Toggle mobile menu
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 mobileMenu.classList.toggle('active');
                 document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
             });
             
-            // Close mobile menu when clicking on a link
             mobileMenuLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.remove('active');
@@ -833,7 +1378,6 @@
                 });
             });
             
-            // Close mobile menu when clicking outside
             document.addEventListener('click', (e) => {
                 if (mobileMenu.classList.contains('active') && 
                     !mobileMenu.contains(e.target) && 
@@ -843,7 +1387,6 @@
                 }
             });
             
-            // Close mobile menu on escape key
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                     mobileMenu.classList.remove('active');
@@ -863,20 +1406,6 @@
             
             carouselContainer.addEventListener('mouseleave', () => {
                 skillsCarousel.style.animationPlayState = 'running';
-            });
-        }
-        
-        // Skills carousel navigation
-        const carouselPrev = document.querySelector('.carousel-btn.prev');
-        const carouselNext = document.querySelector('.carousel-btn.next');
-        
-        if (carouselPrev && carouselNext && skillsCarousel) {
-            carouselPrev.addEventListener('click', () => {
-                skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
-            });
-            
-            carouselNext.addEventListener('click', () => {
-                skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
             });
         }
         
@@ -911,55 +1440,36 @@
             });
         });
         
-        // Touch support for carousel on mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        if (skillsCarousel) {
-            skillsCarousel.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, { passive: true });
-            
-            skillsCarousel.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, { passive: true });
-        }
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            
-            if (touchEndX < touchStartX - swipeThreshold) {
-                // Swipe left
-                if (skillsCarousel) {
-                    skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
-                }
+        // Close modal when clicking outside
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('prime-modal')) {
+                const modalId = e.target.id;
+                const skillId = modalId.replace('modal-', '');
+                closeSkillModal(skillId);
             }
-            
-            if (touchEndX > touchStartX + swipeThreshold) {
-                // Swipe right
-                if (skillsCarousel) {
-                    skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
-                }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.prime-modal').forEach(modal => {
+                    if (modal.style.display === 'flex') {
+                        const modalId = modal.id;
+                        const skillId = modalId.replace('modal-', '');
+                        closeSkillModal(skillId);
+                    }
+                });
             }
-        }
+        });
     });
 
-    // Skill Modal Functions
+    // Skill Modal Functions - Prime Video Style
     function openSkillModal(skillId) {
         const modal = document.getElementById(`modal-${skillId}`);
         if (modal) {
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-            
-            // Close on escape key
-            const closeOnEsc = (e) => {
-                if (e.key === 'Escape') {
-                    closeSkillModal(skillId);
-                    document.removeEventListener('keydown', closeOnEsc);
-                }
-            };
-            document.addEventListener('keydown', closeOnEsc);
+            modal.scrollTop = 0;
         }
     }
     
@@ -970,31 +1480,8 @@
             document.body.style.overflow = '';
         }
     }
-    
-    // Close modal when clicking outside
-    window.addEventListener('click', (e) => {
-        if (e.target.classList.contains('skill-modal')) {
-            e.target.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    });
-    
-    // Alternative: Hover effect for desktop (optional)
-    const skillCards = document.querySelectorAll('.skill-card');
-    
-    skillCards.forEach(card => {
-        card.addEventListener('mouseenter', (e) => {
-            // Add hover effect
-            card.style.zIndex = '100';
-        });
-        
-        card.addEventListener('mouseleave', (e) => {
-            // Remove hover effect
-            card.style.zIndex = '1';
-        });
-    });
 
-    // Contact form handling (keep your existing form code)
+    // Contact form handling
     const contactForm = document.getElementById('contact-form');
     const successMessage = document.getElementById('success-message');
     
@@ -1002,20 +1489,17 @@
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Show loading state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
             submitBtn.disabled = true;
             
-            // Submit form via AJAX
             fetch(contactForm.action, {
                 method: 'POST',
                 body: new FormData(contactForm)
             })
             .then(response => {
                 if (response.ok) {
-                    // Show success message
                     if (successMessage) {
                         successMessage.style.display = 'block';
                         contactForm.reset();
@@ -1029,7 +1513,6 @@
                 alert('Network error. Please try again.');
             })
             .finally(() => {
-                // Reset button
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
             });
