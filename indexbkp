@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Samsad Hussain | Database Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amazon+Ember:wght@300;400;500;600;700&family=Segoe+UI:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/ios-filled/50/forward--v1.png">
+</head>
+<body>
+    <!-- Top Navigation -->
+    <nav class="prime-nav">
+        <div class="nav-left">
+            <ul class="nav-links">
+                <li class="active"><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#skills"><i class="fas fa-database"></i> Skills</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#certifications"><i class="fas fa-award"></i> Certifications</a></li>
+                <li><a href="#projects"><i class="fas fa-book"></i> Publications</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search portfolio...">
+            </div>
+            <div class="user-profile">
+                <img src="profilepic.png" alt="Mohammad Samsad Hussain" id="profile-img">
+                <span>Mohammad Samsad Hussain</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu (Hidden by default on desktop) -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#skills"><i class="fas fa-database"></i> Skills</a></li>
+            <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+            <li><a href="#certifications"><i class="fas fa-award"></i> Certifications</a></li>
+            <li><a href="#projects"><i class="fas fa-book"></i> Publications</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+        <div class="mobile-search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search portfolio...">
+        </div>
+        <div class="mobile-user-profile">
+            <img src="profilepic.png" alt="Mohammad Samsad Hussain">
+            <div class="mobile-user-info">
+                <h4>Mohammad Samsad Hussain</h4>
+                <p>Senior Database Architect</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section - Amazon Prime Style -->
+    <section id="home" class="prime-hero">
+        <div class="hero-background"></div>
+        
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fab fa-amazon-prime"></i>
+                <span>SENIOR DATABASE ARCHITECT</span>
+            </div>
+            
+            <h1 class="hero-title">MOHAMMAD SAMSAD HUSSAIN</h1>
+            
+            <div class="hero-meta">
+                <span class="stars">★★★★★</span>
+                <span class="rating">15+ Years Experience</span>
+                <i class="fas fa-trophy"></i>
+                <span class="quality">SENIOR DATABASE ARCHITECT/ SOLUTION ARCHITECT</span>
+            </div>
+            
+            <p class="hero-description">
+                A seasoned Database Administrator & Solution Architect with over 15+ years of expertise in designing, 
+                optimizing, and managing enterprise database systems. Specializing in IBM DB2, PostgreSQL, MySQL, 
+                MongoDB with focus on high availability, performance tuning, and cloud migration.
+            </p>
+            
+            <div class="hero-languages">
+                <span>Language :</span>
+                <span class="language">English</span>
+                <span class="language">Hindi</span>
+            </div>
+            
+            <div class="hero-actions">
+                <button class="play-btn">
+                    <i class="fas fa-play"></i> View Portfolio
+                </button>
+                <button class="more-btn">
+                    <i class="fas fa-info-circle"></i> More Details
+                </button>
+                <button class="add-btn">
+                    <i class="fas fa-plus"></i> Download Resume
+                </button>
+            </div>
+            
+            <div class="lead-role-section">
+                <div class="lead-role-title">Lead Role</div>
+                <div class="lead-role-stats">
+                    <div class="stat-item">
+                        <div class="stat-value">15+</div>
+                        <div class="stat-label">Years</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">7+</div>
+                        <div class="stat-label">Platforms</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">50+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-sidebar">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <img src="profilepic.png" alt="Mohammad Samsad Hussain">
+                    <div class="profile-badge">
+                        <i class="fab fa-amazon-prime"></i>
+                    </div>
+                </div>
+                <div class="profile-info">
+                    <h3>Lead Role</h3>
+                    <p>Database Solution Architect</p>
+                    <div class="profile-stats">
+                        <div>
+                            <h4>15+</h4>
+                            <p>Years</p>
+                        </div>
+                        <div>
+                            <h4>7+</h4>
+                            <p>Platforms</p>
+                        </div>
+                        <div>
+                            <h4>50+</h4>
+                            <p>Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-links">
+                <h4><i class="fas fa-bolt"></i> Quick Links</h4>
+                <a href="#skills" class="quick-link">
+                    <i class="fas fa-database"></i>
+                    <span>Technical Skills</span>
+                </a>
+                <a href="#experience" class="quick-link">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+                <a href="#certifications" class="quick-link">
+                    <i class="fas fa-award"></i>
+                    <span>Certifications</span>
+                </a>
+                <a href="https://a.co/d/9hFJVkG" target="_blank" class="quick-link">
+                    <i class="fas fa-book"></i>
+                    <span>PostgreSQL Book</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+        <!-- Skills Carousel -->
+    <section id="skills" class="prime-carousel">
+        <div class="carousel-header">
+            <h2><i class="fas fa-database"></i> Database Platforms</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+        <div class="carousel-track-container">
+            <div class="skills-carousel">
+                <!-- IBM DB2 Card -->
+                <div class="skill-card" data-skill="db2">
+                    <div class="skill-icon">
+                        <i class="fab fa-ibm"></i>
+                    </div>
+                    <h3>IBM DB2</h3>
+                    <p>Expert Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 98%"></div>
+                    </div>
+                    <button class="preview-btn" onclick="openSkillModal('db2')">
+                        <i class="fas fa-play"></i> Preview
+                    </button>
+                    
+                    <!-- Skill Details Modal (Hidden by default) -->
+                    <div class="skill-modal" id="modal-db2">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fab fa-ibm"></i> IBM DB2</h3>
+                                <button class="modal-close" onclick="closeSkillModal('db2')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Expert Level | 15+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Database Administration & Architecture</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Tuning & Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>High Availability (HADR) Setup</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>DB2 Migration & Upgrades</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Backup & Recovery Strategies</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Security & Compliance Implementation</span>
+                                    </div>
+                                </div>
+                                <div class="skill-stats">
+                                    <div class="stat">
+                                        <strong>98%</strong>
+                                        <span>Proficiency</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>15+</strong>
+                                        <span>Years</span>
+                                    </div>
+                                    <div class="stat">
+                                        <strong>50+</strong>
+                                        <span>Projects</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PostgreSQL Card -->
+                <div class="skill-card" data-skill="postgresql">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>PostgreSQL</h3>
+                    <p>Expert Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 95%"></div>
+                    </div>
+                    <button class="preview-btn" onclick="openSkillModal('postgresql')">
+                        <i class="fas fa-play"></i> Preview
+                    </button>
+                    
+                    <div class="skill-modal" id="modal-postgresql">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-database"></i> PostgreSQL</h3>
+                                <button class="modal-close" onclick="closeSkillModal('postgresql')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Expert Level | 10+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>PostgreSQL Administration & Tuning</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Replication (Streaming & Logical)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Extension Development</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Migration from other RDBMS</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Author of PostgreSQL Cookbook</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MySQL Card -->
+                <div class="skill-card" data-skill="mysql">
+                    <div class="skill-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <h3>MySQL</h3>
+                    <p>Advanced Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                    <button class="preview-btn" onclick="openSkillModal('mysql')">
+                        <i class="fas fa-play"></i> Preview
+                    </button>
+                    
+                    <div class="skill-modal" id="modal-mysql">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-server"></i> MySQL</h3>
+                                <button class="modal-close" onclick="closeSkillModal('mysql')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 8+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>MySQL Cluster & Replication</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Performance Schema & Optimization</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>High Availability Solutions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MongoDB Card -->
+                <div class="skill-card" data-skill="mongodb">
+                    <div class="skill-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>MongoDB</h3>
+                    <p>Advanced Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 88%"></div>
+                    </div>
+                    <button class="preview-btn" onclick="openSkillModal('mongodb')">
+                        <i class="fas fa-play"></i> Preview
+                    </button>
+                    
+                    <div class="skill-modal" id="modal-mongodb">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-leaf"></i> MongoDB</h3>
+                                <button class="modal-close" onclick="closeSkillModal('mongodb')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 5+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>MongoDB Administration</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Sharding & Replication</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Aggregation Framework</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AWS Card -->
+                <div class="skill-card" data-skill="aws">
+                    <div class="skill-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>AWS</h3>
+                    <p>Advanced Level</p>
+                    <div class="skill-progress">
+                        <div class="progress" style="width: 90%"></div>
+                    </div>
+                    <button class="preview-btn" onclick="openSkillModal('aws')">
+                        <i class="fas fa-play"></i> Preview
+                    </button>
+                    
+                    <div class="skill-modal" id="modal-aws">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3><i class="fas fa-cloud"></i> AWS Cloud Services</h3>
+                                <button class="modal-close" onclick="closeSkillModal('aws')">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Advanced Level | 6+ Years Experience</h4>
+                                <div class="skill-details">
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>AWS RDS (PostgreSQL, MySQL)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Database Migration Service (DMS)</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Aurora PostgreSQL/MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- REMOVED DUPLICATE CARDS - Only showing 5 unique items -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Experience Section -->
+    <section id="experience" class="prime-experience">
+        <div class="carousel-header">
+            <h2><i class="fas fa-briefcase"></i> Professional Experience</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+        <div class="experience-grid">
+            <div class="experience-card">
+                <div class="exp-badge">
+                    <span>CURRENT</span>
+                </div>
+                <div class="exp-content">
+                    <h3>DB2 DBA (Solution Architect)</h3>
+                    <p class="exp-company">Impressive Communication · TNB Malaysia</p>
+                    <p class="exp-duration">2022 - Present</p>
+                    <div class="exp-tags">
+                        <span>DB2</span>
+                        <span>PostgreSQL</span>
+                        <span>HA/DR</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="exp-content">
+                    <h3>Lead DB2 Consultant</h3>
+                    <p class="exp-company">NTT DATA · Port of Singapore</p>
+                    <p class="exp-duration">2020 - 2022</p>
+                    <div class="exp-tags">
+                        <span>AWS</span>
+                        <span>Migration</span>
+                        <span>PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="exp-content">
+                    <h3>DB2 DBA Administrator</h3>
+                    <p class="exp-company">EXPERIS · Accenture Malaysia</p>
+                    <p class="exp-duration">2019 - 2020</p>
+                    <div class="exp-tags">
+                        <span>DB2</span>
+                        <span>MongoDB</span>
+                        <span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="experience-card">
+                <div class="exp-content">
+                    <h3>Database Administrator</h3>
+                    <p class="exp-company">Vayam Info · Indian Navy</p>
+                    <p class="exp-duration">2011 - 2016</p>
+                    <div class="exp-tags">
+                        <span>DB2</span>
+                        <span>SAP</span>
+                        <span>Linux</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="prime-certifications">
+        <div class="carousel-header">
+            <h2><i class="fas fa-award"></i> Professional Certifications</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+        <div class="certifications-grid">
+            <div class="cert-card featured">
+                <div class="cert-badge">
+                    <i class="fab fa-amazon-prime"></i> PRIME CERTIFIED
+                </div>
+                <div class="cert-icon">
+                    <i class="fab fa-ibm"></i>
+                </div>
+                <h3>IBM Certified Database Administrator</h3>
+                <p>DB2 10.1 for Linux UNIX and Windows</p>
+                <div class="cert-meta">
+                    <span>Test 611</span>
+                    <span>Expert Level</span>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-ibm"></i>
+                </div>
+                <h3>IBM Certified Database Associate</h3>
+                <p>DB2 9 Fundamentals</p>
+                <div class="cert-meta">
+                    <span>Test 730</span>
+                    <span>Professional</span>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-oracle"></i>
+                </div>
+                <h3>Oracle Cloud Infrastructure</h3>
+                <p>Architect Professional</p>
+                <div class="cert-meta">
+                    <span>120-997</span>
+                    <span>Advanced</span>
+                </div>
+            </div>
+            
+            <div class="cert-card">
+                <div class="cert-icon">
+                    <i class="fab fa-oracle"></i>
+                </div>
+                <h3>Oracle Autonomous Database</h3>
+                <p>Cloud 2019 Specialist</p>
+                <div class="cert-meta">
+                    <span>120-931-F</span>
+                    <span>Specialist</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="projects" class="prime-publications">
+        <div class="carousel-header">
+            <h2><i class="fas fa-book"></i> Publications & Projects</h2>
+            <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+        </div>
+        
+        <div class="section-card">
+            <div class="publication-featured">
+                <div class="pub-image">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="PostgreSQL Cookbook">
+                    <div class="prime-overlay">
+                        <i class="fab fa-amazon-prime"></i>
+                        <span>PRIME READING</span>
+                    </div>
+                </div>
+                <div class="pub-content">
+                    <div class="pub-badge">
+                        <i class="fas fa-crown"></i> FEATURED PUBLICATION
+                    </div>
+                    <h3>PostgreSQL 15 Cookbook</h3>
+                    <p class="pub-author">By Mohammad Samsad Hussain</p>
+                    <p class="pub-description">
+                        A comprehensive guide to PostgreSQL 15 with practical recipes for database administration, 
+                        performance tuning, and advanced features. Available on Amazon with real-world scenarios 
+                        and best practices for enterprise database management.
+                    </p>
+                    <div class="pub-meta">
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                        <span><i class="fas fa-calendar"></i> 2023</span>
+                    </div>
+                    <div class="pub-actions">
+                        <a href="https://a.co/d/9hFJVkG" target="_blank" class="play-btn" style="text-decoration: none; display: inline-block;">
+                            <i class="fab fa-amazon"></i> Buy Now on Amazon
+                        </a>
+                        <button class="more-btn">
+                            <i class="fas fa-book-open"></i> Read Sample
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="projects-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+            <div class="section-card" style="margin: 0;">
+                <div class="project-content">
+                    <h4>DB2 to PostgreSQL Migration</h4>
+                    <p>Enterprise migration with AWS DMS</p>
+                    <div class="exp-tags">
+                        <span>AWS</span>
+                        <span>PostgreSQL</span>
+                        <span>Migration</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-card" style="margin: 0;">
+                <div class="project-content">
+                    <h4>High Availability Setup</h4>
+                    <p>HA/DR solutions for critical systems</p>
+                    <div class="exp-tags">
+                        <span>High Availability</span>
+                        <span>Disaster Recovery</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-card" style="margin: 0;">
+                <div class="project-content">
+                    <h4>Cloud Database Optimization</h4>
+                    <p>AWS RDS and Aurora implementation</p>
+                    <div class="exp-tags">
+                        <span>AWS</span>
+                        <span>Cloud</span>
+                        <span>RDS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="prime-contact">
+        <div class="contact-container">
+            <div class="contact-info">
+                <h2><i class="fas fa-envelope"></i> Get in Touch</h2>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>msam0786@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+60196151864</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>https://www.linkedin.com/in/mohdshamshadhussain/</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Malaysia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+               <h3>Send a Message</h3>
+
+<!-- Success Message (hidden by default) -->
+<div id="success-message" style="display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin: 10px 0;">
+  ✅ Thank you! Your message has been sent successfully.
+</div>
+
+<!-- Contact Form -->
+<form id="contact-form" action="https://formsubmit.co/msam0786@gmail.com" method="POST">
+  <div class="form-row">
+    <div class="form-group">
+      <input type="text" name="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <input type="email" name="email" placeholder="Your Email" required>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" name="subject" placeholder="Subject" required>
+  </div>
+  <div class="form-group">
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+  </div>
+  
+  <!-- Required FormSubmit settings -->
+  <input type="hidden" name="_captcha" value="false">
+  <!-- Redirects to same page after submission -->
+  <input type="hidden" name="_next" value="#">
+  
+  <button type="submit" class="submit-btn">
+    <i class="fas fa-paper-plane"></i> Send Message
+  </button>
+</form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+        submitBtn.disabled = true;
+        
+        // Submit form via AJAX
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form)
+        })
+        .then(response => {
+          if (response.ok) {
+            // Show success message
+            successMessage.style.display = 'block';
+            // Reset form
+            form.reset();
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth' });
+          } else {
+            alert('Failed to send message. Please try again.');
+          }
+        })
+        .catch(error => {
+          alert('Network error. Please try again.');
+        })
+        .finally(() => {
+          // Reset button
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          submitBtn.disabled = false;
+        });
+      });
+    }
+  });
+</script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="prime-footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <i class="fab fa-amazon-prime"></i>
+                <span>PrimePortfolio</span>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Portfolio</h4>
+                    <a href="#home">Home</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#experience">Experience</a>
+                </div>
+                <div class="link-column">
+                    <h4>Credentials</h4>
+                    <a href="#certifications">Certifications</a>
+                    <a href="#projects">Publications</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="link-column">
+                    <h4>Connect</h4>
+                    <a href="https://www.linkedin.com/in/mohdshamshadhussain/" target="_blank">LinkedIn</a>
+                    <a href="mailto:msam0786@gmail.com">Email</a>
+                    <a href="tel:+60196151864">Phone</a>
+                </div>
+            </div>
+            
+            <div class="footer-cta">
+                <button class="prime-btn" onclick="window.location.href='https://github.com/mohdsamsad'">
+                    <i class="fab fa-github"></i> View GitHub Portfolio
+                </button>
+                <p>Experience your database portfolio</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/mohdshamshadhussain/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mohdsamsad" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:msam0786@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
+                <p>Mohammad Samsad Hussain - Database Solution Architect</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a');
+        
+        if (mobileMenuBtn && mobileMenu) {
+            // Toggle mobile menu
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('active');
+                document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (mobileMenu.classList.contains('active') && 
+                    !mobileMenu.contains(e.target) && 
+                    !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close mobile menu on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        }
+        
+        // Pause carousel on hover
+        const carouselContainer = document.querySelector('.carousel-track-container');
+        const skillsCarousel = document.querySelector('.skills-carousel');
+        
+        if (carouselContainer && skillsCarousel) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                skillsCarousel.style.animationPlayState = 'paused';
+            });
+            
+            carouselContainer.addEventListener('mouseleave', () => {
+                skillsCarousel.style.animationPlayState = 'running';
+            });
+        }
+        
+        // Skills carousel navigation
+        const carouselPrev = document.querySelector('.carousel-btn.prev');
+        const carouselNext = document.querySelector('.carousel-btn.next');
+        
+        if (carouselPrev && carouselNext && skillsCarousel) {
+            carouselPrev.addEventListener('click', () => {
+                skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+            });
+            
+            carouselNext.addEventListener('click', () => {
+                skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+            });
+        }
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.prime-nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const headerHeight = document.querySelector('.prime-nav').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Touch support for carousel on mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        if (skillsCarousel) {
+            skillsCarousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+            
+            skillsCarousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }, { passive: true });
+        }
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            
+            if (touchEndX < touchStartX - swipeThreshold) {
+                // Swipe left
+                if (skillsCarousel) {
+                    skillsCarousel.scrollBy({ left: 300, behavior: 'smooth' });
+                }
+            }
+            
+            if (touchEndX > touchStartX + swipeThreshold) {
+                // Swipe right
+                if (skillsCarousel) {
+                    skillsCarousel.scrollBy({ left: -300, behavior: 'smooth' });
+                }
+            }
+        }
+    });
+
+    // Skill Modal Functions
+    function openSkillModal(skillId) {
+        const modal = document.getElementById(`modal-${skillId}`);
+        if (modal) {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            
+            // Close on escape key
+            const closeOnEsc = (e) => {
+                if (e.key === 'Escape') {
+                    closeSkillModal(skillId);
+                    document.removeEventListener('keydown', closeOnEsc);
+                }
+            };
+            document.addEventListener('keydown', closeOnEsc);
+        }
+    }
+    
+    function closeSkillModal(skillId) {
+        const modal = document.getElementById(`modal-${skillId}`);
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('skill-modal')) {
+            e.target.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Alternative: Hover effect for desktop (optional)
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    skillCards.forEach(card => {
+        card.addEventListener('mouseenter', (e) => {
+            // Add hover effect
+            card.style.zIndex = '100';
+        });
+        
+        card.addEventListener('mouseleave', (e) => {
+            // Remove hover effect
+            card.style.zIndex = '1';
+        });
+    });
+
+    // Contact form handling (keep your existing form code)
+    const contactForm = document.getElementById('contact-form');
+    const successMessage = document.getElementById('success-message');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Submit form via AJAX
+            fetch(contactForm.action, {
+                method: 'POST',
+                body: new FormData(contactForm)
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    if (successMessage) {
+                        successMessage.style.display = 'block';
+                        contactForm.reset();
+                        successMessage.scrollIntoView({ behavior: 'smooth' });
+                    }
+                } else {
+                    alert('Failed to send message. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('Network error. Please try again.');
+            })
+            .finally(() => {
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+</script>
+</body>
+</html>
